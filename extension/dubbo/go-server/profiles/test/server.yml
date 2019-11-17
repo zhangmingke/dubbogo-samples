@@ -29,6 +29,9 @@ services:
     # 相当于dubbo.xml中的interface
     interface : "com.ikurento.user.UserProvider"
     loadbalance: "random"
+    tps.limiter: "method-service"
+    tps.limit.strategy: "RandomLimitStrategy"
+    tps.limit.rejected.handler: "DefaultValueHandler"
     warmup: "100"
     cluster: "failover"
     methods:

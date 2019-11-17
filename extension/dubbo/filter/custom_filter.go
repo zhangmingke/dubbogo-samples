@@ -67,13 +67,13 @@ func (mf myCustomFilter) OnResponse(result protocol.Result, invoker protocol.Inv
 	return result
 }
 
-
-func GetMyCustomFilter() filter.Filter  {
+func GetMyCustomFilter() filter.Filter {
 	return &myCustomFilter{}
 }
 
 var myFilterOnce = sync.Once{}
 var myFilter *myCustomFilter
+
 /**
  * In most cases, the filter would be designed as singleton.
  */
@@ -83,4 +83,3 @@ func GetMyCustomFilterSingleton() filter.Filter {
 	})
 	return myFilter
 }
-
