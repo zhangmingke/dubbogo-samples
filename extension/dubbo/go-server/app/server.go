@@ -38,7 +38,9 @@ import (
 	_ "github.com/apache/dubbo-go/cluster/cluster_impl"
 	_ "github.com/apache/dubbo-go/cluster/loadbalance"
 	_ "github.com/apache/dubbo-go/registry/zookeeper"
+)
 
+import (
 	_ "github.com/dubbogo/dubbogo-samples/extension/dubbo/filter"
 )
 

@@ -49,8 +49,7 @@ func init() {
 	// extension.SetFilter("MyCustomFilter", GetMyCustomFilterSingleton)
 }
 
-type myCustomFilter struct {
-}
+type myCustomFilter struct {}
 
 func (mf myCustomFilter) Invoke(invoker protocol.Invoker, invocation protocol.Invocation) protocol.Result {
 	// the logic put here...
@@ -71,8 +70,10 @@ func GetMyCustomFilter() filter.Filter {
 	return &myCustomFilter{}
 }
 
-var myFilterOnce = sync.Once{}
-var myFilter *myCustomFilter
+var (
+	myFilterOnce = sync.Once{}
+	myFilter *myCustomFilter
+)
 
 /**
  * In most cases, the filter would be designed as singleton.

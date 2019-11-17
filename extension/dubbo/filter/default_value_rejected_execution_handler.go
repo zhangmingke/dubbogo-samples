@@ -84,8 +84,10 @@ func GetCustomRejectedExecutionHandler() filterCommon.RejectedExecutionHandler {
 	return &DefaultValueRejectedExecutionHandler{}
 }
 
-var customHandlerOnce = sync.Once{}
-var customHandlerInstance *DefaultValueRejectedExecutionHandler
+var (
+	customHandlerOnce = sync.Once{}
+	customHandlerInstance *DefaultValueRejectedExecutionHandler
+)
 
 /**
  * the better way is designing the RejectedExecutionHandler as singleton.
