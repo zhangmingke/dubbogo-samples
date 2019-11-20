@@ -1,6 +1,12 @@
-### 1.Run zookeeper as config center
+### 1.Run apollo as config center
 
-```docker-compose -f docker/docker-compose.yaml up -d```
+* download this folder as below
+
+[docker-quick-start](https://github.com/ctripcorp/apollo/tree/master/scripts/docker-quick-start)
+
+* enter docker-quick-start folder and run
+
+```docker-compose up```
 
 ### 2.Run java server & java client following [README](https://github.com/dubbogo/dubbogo-samples/blob/master/README.md)
 
