@@ -34,8 +34,6 @@ public class Consumer {
 
     public static void main(String[] args) throws Exception {
         new EmbeddedZooKeeper(2181, false).start();
-        ZKTools.generateDubboProperties();
-        Thread.sleep(2000);
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/dubbo.consumer.xml","META-INF/spring/service.xml");
         context.start();
         context.getBean(Consumer.class).start();

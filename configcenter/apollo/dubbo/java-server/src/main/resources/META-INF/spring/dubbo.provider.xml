@@ -22,7 +22,7 @@
     <context:property-placeholder/>
     <!-- 应用名 -->
     <dubbo:application name="user-info-server"/>
-    <dubbo:config-center address="apollo://127.0.0.1:8080"/>
+    <dubbo:config-center protocol="apollo" address="106.54.227.205:8080"/>
 
     <bean id="demoService" class="com.ikurento.user.impl.UserProviderImpl"/><!-- 声明需要暴露的服务接口 -->
     <dubbo:service id="UserProvider1" registry="ikurento" timeout="3000" interface="com.ikurento.user.UserProvider"
