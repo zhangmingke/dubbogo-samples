@@ -54,6 +54,12 @@
             <version>${dubbo.version}</version>
             <type>pom</type>
         </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-configcenter-apollo</artifactId>
+            <version>${dubbo.version}</version>
+            <type>pom</type>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
