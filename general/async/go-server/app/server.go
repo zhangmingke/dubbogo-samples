@@ -23,8 +23,6 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
-
-	"github.com/dubbogo/dubbogo-samples/general"
 )
 
 import (
@@ -50,7 +48,7 @@ var (
 // 		export APP_LOG_CONF_FILE="xxx"
 func main() {
 
-	hessian.RegisterPOJO(&general.User{})
+	hessian.RegisterPOJO(&User{})
 	config.Load()
 
 	initSignal()
