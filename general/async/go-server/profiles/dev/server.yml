@@ -1,10 +1,4 @@
 # dubbo server yaml configure file
-config_center:
-  protocol: apollo
-  address: 127.0.0.1:8080
-  app_id: testApplication_yang
-  cluster: dev
-
 application:
   organization : "ikurento.com"
   name : "BDTService"

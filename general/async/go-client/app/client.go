@@ -25,7 +25,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/dubbogo/dubbogo-samples/general"
+	"github.com/apache/dubbo-go/common"
 )
 
 import (
@@ -55,13 +55,13 @@ func println(format string, args ...interface{}) {
 // 		export CONF_CONSUMER_FILE_PATH="xxx"
 // 		export APP_LOG_CONF_FILE="xxx"
 func main() {
-	hessian.RegisterPOJO(&general.User{})
+	hessian.RegisterPOJO(&User{})
 	config.Load()
 	time.Sleep(1e9)
 
 	println("\n\n\nstart to test dubbo")
-	user := &general.User{}
-	err := general.userProvider.GetUser(context.TODO(), []interface{}{"A001"}, user)
+	user := &User{}
+	err := userProvider.GetUser(context.TODO(), []interface{}{"A001"}, user)
 	if err != nil {
 		panic(err)
 	}
@@ -91,4 +91,34 @@ func initSignal() {
 			return
 		}
 	}
+}
+
+var userProvider = new(UserProvider)
+
+func init() {
+	config.SetConsumerService(userProvider)
+	hessian.RegisterPOJO(&User{})
+}
+
+type User struct {
+	Id   string
+	Name string
+	Age  int32
+	Time time.Time
+}
+
+type UserProvider struct {
+	GetUser func(ctx context.Context, req []interface{}, rsp *User) error
+}
+
+func (u *UserProvider) Reference() string {
+	return "UserProvider"
+}
+
+func (User) JavaClassName() string {
+	return "com.ikurento.user.User"
+}
+
+func (u *UserProvider) CallBack(res common.CallbackResponse) {
+	fmt.Println("CallBack res:", res)
 }
