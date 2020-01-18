@@ -1,6 +1,6 @@
 # examples
 
-Examples of dubbo-go
+Examples of dubbo-go. **Please attention that this repo has been included by dubbo official application example repo[dubbo-samples](https://github.com/apache/dubbo-samples).** So we do not maintain this repo again.
 
 ## What does this contain
 
